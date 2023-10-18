@@ -91,7 +91,10 @@ const slideImages = [
 
 let currentQuestion = 0;
 let rightAnswerCount = 0;
-let bgMusic = new Audio('audio/bg-music.mp3');
+let bgMusic = new Audio('./audio/bg-music.mp3');
+let audioSuccess = new Audio('./audio/success.mp3');
+let audioFail = new Audio('./audio/fail.mp3');
+let audioEnd = new Audio('./audio/success-end.mp3');
 let currentSlide = 0;
 
 
@@ -136,6 +139,8 @@ function ifTemplateShowQuestion() {
     document.getElementById('end-screen').style = '';
     document.getElementById('question-screen').style = 'display: none;';
     document.getElementById('score-number').innerHTML = `${rightAnswerCount}/${questions.length}`;
+    audioEnd.volume = 0.03;
+    audioEnd.play();
     if (rightAnswerCount >= 7) {
         document.getElementById('nice').style = '';
     } else {
@@ -163,10 +168,14 @@ function answer(selection) {
 
     if (selectedQuestionNumber == question['rightAnswer']) {
         document.getElementById(selection).parentNode.classList.add('success-style');
+        audioSuccess.volume = 0.01;
+        audioSuccess.play();
         rightAnswerCount++;
     } else {
         document.getElementById(selection).parentNode.classList.add('danger-style');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('success-style');
+        audioFail.volume = 0.05;
+        audioFail.play();
     }
     document.getElementById('next-button').disabled = false;
 }
