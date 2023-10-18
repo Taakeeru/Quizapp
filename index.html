@@ -13,7 +13,7 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
-<body>
+<body onload="init()">
 
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
@@ -24,36 +24,41 @@
     <div class="container">
         <div class="card quiz-card">
             <img src="./img/op-logo2.png" class="card-img-top" alt="Logo">
-            <div class="card-body">
-                <h5 class="card-title">Frage</h5>
+
+            <div class="card-body" id="end-screen" style="display: none;">
+                Quiz beendet!!
+            </div>
+
+            <div class="card-body" id="question-screen" style="">
+                <h5 class="card-title" id="question-text">Frage</h5>
                 
-                <div class="card mb-3">
-                    <div class="card-body">
+                <div class="card quiz-answer-card mb-3" onclick="answer('answer1')">
+                    <div class="card-body" id="answer1">
                       Antwort
                     </div>
                 </div>
 
-                <div class="card mb-3">
-                    <div class="card-body">
+                <div class="card quiz-answer-card mb-3" onclick="answer('answer2')">
+                    <div class="card-body" id="answer2">
                       Antwort
                     </div>
                 </div>
 
-                <div class="card mb-3">
-                    <div class="card-body">
+                <div class="card quiz-answer-card mb-3" onclick="answer('answer3')">
+                    <div class="card-body" id="answer3">
                       Antwort
                     </div>
                 </div>
 
-                <div class="card mb-3">
-                    <div class="card-body">
+                <div class="card quiz-answer-card mb-3" onclick="answer('answer4')">
+                    <div class="card-body" id="answer4">
                       Antwort
                     </div>
                 </div>
 
                 <div class="question-footer">
-                    <span><b>1</b> von <b>5</b> Fragen</span>
-                    <button type="button" class="btn btn-outline-primary">Nächste Frage</button>
+                    <span><b id="current-question">1</b> von <b id="questions-length">5</b> Fragen</span>
+                    <button onclick="nextQuestion()" type="button" class="btn btn-outline-primary" id="next-button" disabled>Nächste Frage</button>
                 </div>
 
             </div>

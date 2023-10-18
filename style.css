@@ -1,14 +1,13 @@
 body {
-    background-color: rgb(230, 216, 192) !important;
+    background-color: rgba(38, 192, 253, 0.295) !important;
 }
 
 .container {
     min-height: 100vh;
-    background-color: rgb(230, 216, 192) !important;
+    /* background-color: rgba(98, 197, 236, 0.212) !important; */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* min-width: 100vw !important; */
 }
 
 .quiz-card {
@@ -21,4 +20,19 @@ body {
     align-items: center;
     border-top: 1px solid rgba(0,0,0,0.15);
     padding-top: 15px;
+}
+
+.quiz-answer-card:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.02);
+} 
+
+.success-style {
+    background-color: rgba(19, 153, 19, 0.315) !important;
+    border: 2px solid green !important;
+}
+
+.danger-style {
+    background-color: rgba(163, 23, 23, 0.315) !important;
+    border: 2px solid red !important;
 }
