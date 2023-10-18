@@ -83,13 +83,18 @@ let questions = [
 
 
 let currentQuestion = 0;
-
+let rightAnswerCount = 0;
 
 
 function init() {
     document.getElementById('questions-length').innerHTML = questions.length;
     showQuestion();
 }
+
+
+function reloadPage(){
+    window.location.reload();
+} 
 
 
 function showQuestion() {
@@ -105,6 +110,12 @@ function showQuestion() {
 function ifTemplateShowQuestion() {
     document.getElementById('end-screen').style = '';
     document.getElementById('question-screen').style = 'display: none;';
+    document.getElementById('score-number').innerHTML = `${rightAnswerCount}/${questions.length}`;
+    if (rightAnswerCount >= 7) {
+        document.getElementById('nice').style = '';
+    } else {
+        document.getElementById('bad').style = '';
+    }
 }
 
 
@@ -127,6 +138,7 @@ function answer(selection) {
 
     if (selectedQuestionNumber == question['rightAnswer']) {
         document.getElementById(selection).parentNode.classList.add('success-style');
+        rightAnswerCount++;
     } else {
         document.getElementById(selection).parentNode.classList.add('danger-style');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('success-style');

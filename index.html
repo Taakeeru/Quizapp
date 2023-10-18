@@ -23,10 +23,17 @@
 
     <div class="container">
         <div class="card quiz-card">
-            <img src="./img/op-logo2.png" class="card-img-top" alt="Logo">
+            <img src="./img/op-logo3.PNG" class="card-img-top padding" alt="Logo">
 
             <div class="card-body" id="end-screen" style="display: none;">
-                Quiz beendet!!
+                <div class="df-center">
+                    <div class="end-title text-center"><h2>QUIZ BEENDET!</h2></div>
+                    <div class="df-center2"><img class="img-size" src="./img/ruffy.webp" alt=""></div>
+                    <div class="end-score text-center"><h3>DEIN SCORE:     </h3><h3 id="score-number">XX/XX</h3></div>
+                    <div class="end-text text-center" id="bad" style="display: none;"><span>Bleib lieber beim Anime Fairy Tail!</span></div>
+                    <div class="end-text text-center" id="nice" style="display: none;"><span>Sehr Gut!</span></div>
+                    <div class="end-button"><button onclick="reloadPage()" type="button" class="btn btn-outline-primary">Replay</button></div>
+                </div>    
             </div>
 
             <div class="card-body" id="question-screen" style="">

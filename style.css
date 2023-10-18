@@ -36,3 +36,36 @@ body {
     background-color: rgba(163, 23, 23, 0.315) !important;
     border: 2px solid red !important;
 }
+
+.text-center {
+    text-align: center;
+}
+
+.img-size {
+    min-width: 40%;
+    max-width: 60%;
+    min-height: 40%;
+    max-height: 60%;
+}
+
+.df-center {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.df-center2 {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.padding {
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.end-text {
+    font-weight: 600;
+    margin: 0px 0px 20px;
+}
