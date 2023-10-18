@@ -1,0 +1,11 @@
+body {
+    background-color: rgb(230, 216, 192) !important;
+}
+
+.container {
+    min-height: 100vh;
+    background-color: rgb(230, 216, 192) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
