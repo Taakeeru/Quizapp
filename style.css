@@ -8,4 +8,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* min-width: 100vw !important; */
+}
+
+.quiz-card {
+    width: 45rem !important;
+}
+
+.question-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.15);
+    padding-top: 15px;
 }
