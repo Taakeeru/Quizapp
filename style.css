@@ -1,10 +1,18 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+}
+
 body {
-    background-color: rgba(38, 192, 253, 0.295) !important;
+    background-image: url('./img/op-bg.jpg');
 }
 
 .container {
     min-height: 100vh;
-    /* background-color: rgba(98, 197, 236, 0.212) !important; */
     display: flex;
     align-items: center;
     justify-content: center;

@@ -81,15 +81,40 @@ let questions = [
     }
 ];
 
+const slideImages = [
+    'url(./img/op-bg3.jpg)',
+    'url(./img/op-bg4.jpg)',
+    'url(./img/op-bg1.jpg)',
+    'url(./img/op-bg.jpg)'
+];
+
 
 let currentQuestion = 0;
 let rightAnswerCount = 0;
+let bgMusic = new Audio('audio/bg-music.mp3');
+let currentSlide = 0;
 
 
 function init() {
     document.getElementById('questions-length').innerHTML = questions.length;
     showQuestion();
+    bgMusic.loop = true; 
+    bgMusic.volume = 0.02;
+    bgMusic.play();
 }
+
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slideImages.length;
+    updateBackground();
+}
+
+
+function updateBackground() {
+    document.body.style.backgroundImage = slideImages[currentSlide];
+}
+
+setInterval(nextSlide, 5000);
 
 
 function reloadPage(){
