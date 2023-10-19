@@ -1,79 +1,86 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    background-repeat: no-repeat;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  background-repeat: no-repeat;
 }
 
 body {
-    background-image: url('./img/op-bg.jpg');
+  background-image: url("./img/op-bg.jpg");
 }
 
 .container {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .quiz-card {
-    width: 45rem !important;
+  width: 35rem !important;
 }
 
 .question-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(0,0,0,0.15);
-    padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  padding-top: 15px;
 }
 
 .quiz-answer-card:hover {
-    cursor: pointer;
-    background-color: rgba(0,0,0,0.02);
-} 
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.02);
+}
 
 .success-style {
-    background-color: rgba(19, 153, 19, 0.315) !important;
-    border: 2px solid green !important;
+  background-color: rgba(19, 153, 19, 0.315) !important;
+  border: 2px solid green !important;
 }
 
 .danger-style {
-    background-color: rgba(163, 23, 23, 0.315) !important;
-    border: 2px solid red !important;
+  background-color: rgba(163, 23, 23, 0.315) !important;
+  border: 2px solid red !important;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .img-size {
-    min-width: 40%;
-    max-width: 60%;
-    min-height: 40%;
-    max-height: 60%;
+  min-width: 40%;
+  max-width: 60%;
+  min-height: 40%;
+  max-height: 60%;
 }
 
 .df-center {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
 }
 
 .df-center2 {
-    display: flex !important;
-    justify-content: center !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.greater-blue {
+  color: rgb(13, 132, 253) !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
 }
 
 .padding {
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-top: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
 .end-text {
-    font-weight: 600;
-    margin: 0px 0px 20px;
+  font-weight: 600;
+  margin: 0px 0px 20px;
 }

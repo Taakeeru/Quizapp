@@ -1,77 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz-App</title>
 
-    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
 
     <!-- Bootstrap file -->
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-</head>
-<body onload="init()">
-
+  </head>
+  <body onload="init()">
     <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">QuizApp</span>
-        </div>
+      <div class="container-fluid df-center2">
+        <span class="navbar-brand mb-0 h1 greater-blue">QuizApp</span>
+        <button class="btn btn-outline-primary" id="play-button">
+          Musik abspielen
+        </button>
+      </div>
     </nav>
 
     <div class="container">
-        <div class="card quiz-card">
-            <img src="./img/op-logo3.PNG" class="card-img-top padding" alt="Logo">
+      <div class="card quiz-card">
+        <img src="./img/op-logo3.PNG" class="card-img-top padding" alt="Logo" />
 
-            <div class="card-body" id="end-screen" style="display: none;">
-                <div class="df-center">
-                    <div class="end-title text-center"><h2>QUIZ BEENDET!</h2></div>
-                    <div class="df-center2"><img class="img-size" src="./img/ruffy.webp" alt=""></div>
-                    <div class="end-score text-center"><h3>DEIN SCORE:     </h3><h3 id="score-number">XX/XX</h3></div>
-                    <div class="end-text text-center" id="bad" style="display: none;"><span>Bleib lieber beim Anime Fairy Tail!</span></div>
-                    <div class="end-text text-center" id="nice" style="display: none;"><span>Sehr Gut!</span></div>
-                    <div class="end-button"><button onclick="reloadPage()" type="button" class="btn btn-outline-primary">Replay</button></div>
-                </div>    
-            </div>
-
-            <div class="card-body" id="question-screen" style="">
-                <h5 class="card-title" id="question-text">Frage</h5>
-                
-                <div class="card quiz-answer-card mb-3" onclick="answer('answer1')">
-                    <div class="card-body" id="answer1">
-                      Antwort
-                    </div>
-                </div>
-
-                <div class="card quiz-answer-card mb-3" onclick="answer('answer2')">
-                    <div class="card-body" id="answer2">
-                      Antwort
-                    </div>
-                </div>
-
-                <div class="card quiz-answer-card mb-3" onclick="answer('answer3')">
-                    <div class="card-body" id="answer3">
-                      Antwort
-                    </div>
-                </div>
-
-                <div class="card quiz-answer-card mb-3" onclick="answer('answer4')">
-                    <div class="card-body" id="answer4">
-                      Antwort
-                    </div>
-                </div>
-
-                <div class="question-footer">
-                    <span><b id="current-question">1</b> von <b id="questions-length">5</b> Fragen</span>
-                    <button onclick="nextQuestion()" type="button" class="btn btn-outline-primary" id="next-button" disabled>Nächste Frage</button>
-                </div>
-
-            </div>
+        <div class="progress" role="progressbar">
+          <div class="progress-bar" id="progress-bar" style="width: 25%">
+            0%
+          </div>
         </div>
-    </div>
 
-</body>
+        <div class="card-body" id="end-screen" style="display: none">
+          <div class="df-center">
+            <div class="end-title text-center"><h2>QUIZ BEENDET!</h2></div>
+            <div class="df-center2">
+              <img class="img-size" src="./img/ruffy.webp" alt="" />
+            </div>
+            <div class="end-score text-center">
+              <h3>DEIN SCORE:</h3>
+              <h3 id="score-number">XX/XX</h3>
+            </div>
+            <div class="end-text text-center" id="bad" style="display: none">
+              <span>Bleib lieber beim Anime Fairy Tail!</span>
+            </div>
+            <div class="end-text text-center" id="nice" style="display: none">
+              <span>Sehr Gut!</span>
+            </div>
+            <div class="end-button">
+              <button
+                onclick="restartQuiz()"
+                type="button"
+                class="btn btn-outline-primary"
+              >
+                Replay
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body" id="question-screen" style="">
+          <h5 class="card-title" id="question-text">Frage</h5>
+
+          <div class="card quiz-answer-card mb-3" onclick="answer('answer1')">
+            <div class="card-body" id="answer1">Antwort</div>
+          </div>
+
+          <div class="card quiz-answer-card mb-3" onclick="answer('answer2')">
+            <div class="card-body" id="answer2">Antwort</div>
+          </div>
+
+          <div class="card quiz-answer-card mb-3" onclick="answer('answer3')">
+            <div class="card-body" id="answer3">Antwort</div>
+          </div>
+
+          <div class="card quiz-answer-card mb-3" onclick="answer('answer4')">
+            <div class="card-body" id="answer4">Antwort</div>
+          </div>
+
+          <div class="question-footer">
+            <span
+              ><b id="current-question">1</b> von
+              <b id="questions-length">5</b> Fragen</span
+            >
+            <button
+              onclick="nextQuestion()"
+              type="button"
+              class="btn btn-outline-primary"
+              id="next-button"
+              disabled
+            >
+              Nächste Frage
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
