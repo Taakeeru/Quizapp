@@ -133,21 +133,27 @@ setInterval(nextSlide, 5000);
 
 function showQuestion() {
 
-    if (currentQuestion >= questions.length) {
-        ifTemplateShowQuestion();
+    if (quizIsOver()) {
+        showEndScreen();
+        showResultText();
     } else {
-        elseTemplateShowQuestion();
+        updateProgressbar();
+        updateToNextQuestion();
     }
 }
 
 
-function ifTemplateShowQuestion() {
+function quizIsOver() {
+    return currentQuestion >= questions.length;
+}
+
+
+function showEndScreen() {
     document.getElementById('end-screen').style = '';
     document.getElementById('question-screen').style = 'display: none;';
     document.getElementById('score-number').innerHTML = `${rightAnswerCount}/${questions.length}`;
     audioEnd.volume = 0.03;
     audioEnd.play();
-    showResultText();
 }
 
 
@@ -160,10 +166,8 @@ function showResultText() {
 }
 
 
-function elseTemplateShowQuestion() {
+function updateToNextQuestion() {
     let question = questions[currentQuestion];
-    
-    progressbarCalc();
     document.getElementById('question-text').innerHTML = question['question'];
     document.getElementById('answer1').innerHTML = question['answer1'];
     document.getElementById('answer2').innerHTML = question['answer2'];
@@ -173,7 +177,7 @@ function elseTemplateShowQuestion() {
 }
 
 
-function progressbarCalc() {
+function updateProgressbar() {
     let precent = (currentQuestion + 1) / questions.length;
     precent = Math.round(precent * 100);
     
@@ -187,16 +191,21 @@ function answer(selection) {
     let selectedQuestionNumber = selection.slice(-1);
     let idOfRightAnswer = `answer${question['rightAnswer']}`;
 
-    if (selectedQuestionNumber == question['rightAnswer']) {
-        ifAnswerTemplate(selection);
+    if (rightAnswerSelected(selectedQuestionNumber, question)) {
+        showRightAnswerStyle(selection);
     } else {
-        elseAnswerTemplate(selection, idOfRightAnswer);
+        showWrongAnswerStyle(selection, idOfRightAnswer);
     }
     document.getElementById('next-button').disabled = false;
 }
 
 
-function ifAnswerTemplate(selection) {
+function rightAnswerSelected(selectedQuestionNumber, question) {
+    return selectedQuestionNumber == question['rightAnswer']
+}
+
+
+function showRightAnswerStyle(selection) {
     document.getElementById(selection).parentNode.classList.add('success-style');
     audioSuccess.volume = 0.01;
     audioSuccess.play();
@@ -204,7 +213,7 @@ function ifAnswerTemplate(selection) {
 }
 
 
-function elseAnswerTemplate(selection, idOfRightAnswer) {
+function showWrongAnswerStyle(selection, idOfRightAnswer) {
     document.getElementById(selection).parentNode.classList.add('danger-style');
     document.getElementById(idOfRightAnswer).parentNode.classList.add('success-style');
     audioFail.volume = 0.05;
@@ -221,14 +230,11 @@ function nextQuestion() {
 
 
 function resetAnswerCards() {
-    document.getElementById('answer1').parentNode.classList.remove('success-style');
-    document.getElementById('answer1').parentNode.classList.remove('danger-style');
-    document.getElementById('answer2').parentNode.classList.remove('success-style');
-    document.getElementById('answer2').parentNode.classList.remove('danger-style');
-    document.getElementById('answer3').parentNode.classList.remove('success-style');
-    document.getElementById('answer3').parentNode.classList.remove('danger-style');
-    document.getElementById('answer4').parentNode.classList.remove('success-style');
-    document.getElementById('answer4').parentNode.classList.remove('danger-style');
+    for (let i = 1; i <= 4; i++) {
+        const answer = document.getElementById('answer' + i);
+        answer.parentNode.classList.remove('success-style');
+        answer.parentNode.classList.remove('danger-style');
+    }
 }
 
 
